@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>How long to exam</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        html {
+            background-color: rgb(0, 102, 255);
+        }
+        
+        body {
+            background-color: white;
+            height: 100vh;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            text-align: center;
+        }
+        
+        .date {
+            background-color: white;
+            width: 90%;
+            font-size: 40px;
+            text-align: center;
+            margin: auto;
+        }
+        
+        .date button {
+            font-size: 40px;
+            background: white;
+            border: none;
+        }
+        
+        .scroll {
+            width: 100%;
+            height: 40px;
+            border: 1px solid black;
+            text-align: right;
+            background-color: rgb(255, 255, 255);
+        }
+        
+        #str {
+            height: 100%;
+            background-color: rgb(255, 0, 0);
+        }
+        
+        .coundown {
+            display: grid;
+            grid-template-columns: 1fr 6fr 1fr;
+        }
+        
+        .coundown div:first-child {
+            width: 100%;
+            text-align: right;
+        }
+        
+        .coundown div:last-child {
+            width: 100%;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="date" class="date"></div><br>
+    <div id="left" class="date"></div>
+    <h1> coundown timer </h1>
+    <div class="coundown">
+        <div>5th of spetember 2018</div>
+        <div class="scroll">
+            <div id="str"></div>
+
+        </div>
+        <div>12 of may <br>2023</div>
+    </div>
+
+
+
+</body>
+<script>
+    let str = document.getElementById("str")
+    str.style.width = "0%"
+        // The data/time we want to countdown to
+    var countDownDate = new Date("may 16, 2023 9:30:00").getTime();
+    var countDownDate2 = new Date("may 12, 2023 15:10:00").getTime();
+    // Run myfunc every second
+    var myfunc = setInterval(function() {
+
+        var now = new Date().getTime();
+        var timeleft = countDownDate - now;
+
+        // Calculating the days, hours, minutes and seconds left
+        var days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+        console.log(days)
+
+
+        document.getElementById("date").innerHTML = `<button class="note">${days} Days, </button><button class="note"> ${hours} Hours, </button><button class="note"> ${minutes} Minutes, </button><button class="note"> ${seconds} Seconds,</button> <br>Until the first Exam`
+
+
+        var s = new Date("sep 5,2018 8:45:00").getTime();
+        var f = new Date("may 12, 2023 15:10:00").getTime();
+        var t = f - s
+        var left = (now - s) / t
+        console.log(left)
+        left = (left) * 100
+        str.style.width = `${left}%`
+        console.log(Math.floor(left * 100) / 100)
+    }, 1000);
+    var myfunc = setInterval(function() {
+
+        var now = new Date().getTime();
+        var timeleft = countDownDate2 - now;
+
+        // Calculating the days, hours, minutes and seconds left
+        var days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+
+
+        document.getElementById("left").innerHTML = `<button class="note">${days} Days, </button><button class="note"> ${hours} Hours, </button><button class="note"> ${minutes} Minutes, </button><button class="note"> ${seconds} Seconds,</button> <br>Until you leave Rossett for good(unless your staying for sixthform)`
+    }, 1000);
+</script>
+
+</html>
