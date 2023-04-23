@@ -16,6 +16,7 @@
             margin-top: 0px;
             margin-bottom: 0px;
             text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
         }
         
         .date {
@@ -33,16 +34,18 @@
         }
         
         .scroll {
-            width: 100%;
+            width: 90%;
             height: 40px;
             border: 1px solid black;
             text-align: right;
             background-color: rgb(255, 255, 255);
+            margin: auto;
+            margin: 20px;
         }
         
         #str {
             height: 100%;
-            background-color: rgb(255, 0, 0);
+            background-color: #449eff;
         }
         
         .coundown {
@@ -64,8 +67,8 @@
 
 <body>
     <div id="date" class="date"></div><br>
-    <div id="left" class="date"></div>
-    <h1> coundown timer </h1>
+    <div id="left" class="date"></div><br>
+    <h1> Visual progress </h1>
     <div class="coundown">
         <div>5th of spetember 2018</div>
         <div class="scroll">
@@ -98,7 +101,7 @@
         console.log(days)
 
 
-        document.getElementById("date").innerHTML = `<button class="note">${days} Days, </button><button class="note"> ${hours} Hours, </button><button class="note"> ${minutes} Minutes, </button><button class="note"> ${seconds} Seconds,</button> <br>Until the first Exam`
+        document.getElementById("date").innerHTML = `<button class="note"><b>${days}</b> Days, </button><button class="note"> <b>${hours}</b> Hours, </button><button class="note"> <b>${minutes}</b> Minutes, </button><button class="note"> <b>${seconds}</b> Seconds,</button> <br>Until the first Exam`
 
 
         var s = new Date("sep 5,2018 8:45:00").getTime();
@@ -122,7 +125,7 @@
         var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
 
 
-        document.getElementById("left").innerHTML = `<button class="note">${days} Days, </button><button class="note"> ${hours} Hours, </button><button class="note"> ${minutes} Minutes, </button><button class="note"> ${seconds} Seconds,</button> <br>Until you leave Rossett for good(unless your staying for sixthform)`
+        document.getElementById("left").innerHTML = `<button class="note"><b>${days}</b> Days, </button><button class="note"> <b>${hours}</b> Hours, </button><button class="note"> <b>${minutes}</b> Minutes, </button><button class="note"> <b>${seconds}</b> Seconds,</button>  <br>Until end of school`
     }, 1000);
 </script>
 
